@@ -16,7 +16,7 @@ const Blog = () => {
     //fetching latest blog
     const fetchBlog = async () => {
         const obj = new Crud();
-        const data = await obj.get(`/blog/api/get/${id}`, { method: "POST" });
+        const data = await obj.get(`/blog/api/get/frontend/${id}`, { method: "POST" });
         if (data.success) {
             setBlog(data.blog);
         }
