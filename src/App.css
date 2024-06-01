@@ -1,0 +1,97 @@
+/*Common style for all the pages**************************************************/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Whisper&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --white: #fff;
+  --black: #000;
+  --light-black: #414141;
+  --transparent-dark: rgba(0, 0, 0, 0.9);
+  --backGround-gray: rgb(240, 240, 240);
+  --gray: #252525;
+  --light-gray: #707070;
+  --lightest-gray: #979797;
+  --outline-color: #dadada;
+  --primary-gradient: linear-gradient(to left, var(--light-black), var(--light-gray), var(--light-black));
+  --secondary-gradient: linear-gradient(to left, var(--light-gray), var(--light-gray));
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.disabled {
+  opacity: 0.4;
+}
+
+p,
+a,
+label,
+input,
+.form-control,
+td,
+textarea,
+option {
+  font-size: 0.8rem;
+  color: var(--light-gray);
+}
+
+a {
+  text-decoration: none;
+  color: var(--light-black);
+}
+
+.heading h1 {
+  font-size: 1.45rem;
+}
+
+.heading h2 {
+  font-size: 1.4rem;
+}
+
+.heading h3 {
+  font-size: 1rem;
+}
+
+.description {
+  width: min(600px, 100%);
+}
+
+.adminBtn,
+.adminBtn_sm {
+  padding: 0.5em 1em;
+  border: 0;
+  outline: transparent;
+  background-color: var(--light-black);
+  font-size: 0.8rem;
+}
+
+.adminBtn_sm {
+  font-size: 0.6rem;
+}
+
+.adminBtn:hover,
+.adminBtn_sm:hover {
+  background-color: var(--light-gray);
+}
+
+article,
+.actionBtns {
+  width: min(95%, 400px);
+  margin: auto;
+}
+
+.articleBordered {
+  border: 2px solid var(--lightest-gray);
+}
+
+article .heading h2 {
+  color: var(--light-black);
+}

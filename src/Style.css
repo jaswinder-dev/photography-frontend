@@ -1,0 +1,386 @@
+/* INDEX****************************** */
+
+/* **************** layout *********************** */
+/* layout/Header.jsx */
+/* layout/Footer.jsx */
+
+/* **************** miniComponents *********************** */
+/* miniComponents/PortfolioItem.jsx */
+
+/* **************** pages *********************** */
+/* pages/About.jsx */
+/* pages/Contact.jsx */
+/* pages/Gallery.jsx */
+/* pages/ImageGallery.jsx */
+/* pages/LatestBlog.jsx */
+/* pages/Portfolio.jsx */
+/* pages/Services.jsx */
+/* pages/Testimonials.jsx */
+
+
+/* layout/Header.jsx********************************** */
+#header {
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    background-position: center center;
+}
+
+#header nav li a:not(.logoImg) {
+    color: var(--white);
+}
+
+#header nav li a:not(.logoImg):hover {
+    border-bottom: 2px solid currentColor;
+}
+
+#header nav#forSmallerScreens {
+    display: none;
+}
+
+#header nav#forSmallerScreens ul {
+    width: min(300px, 100%);
+    top: 0;
+    right: 0;
+    right: 0;
+    background-color: var(--transparent-dark);
+    padding-top: 3em;
+    transition: all 0.5s ease;
+}
+
+#header nav#forSmallerScreens .hidden {
+    transform: translateX(400px);
+}
+
+#header nav#forSmallerScreens .shown {
+    transform: translateX(0);
+}
+
+#header #forLargerScreens .logoImg {
+    width: 120px;
+}
+
+#header #forSmallerScreens .logoImg {
+    width: 100px;
+}
+
+#header .hamburgerIcon {
+    width: 15px;
+    aspect-ratio: 1;
+}
+
+#header .hamburgerIcon.shown {
+    animation: rotate 0.5s ease forwards;
+}
+
+#header .hamburgerIcon.hidden {
+    animation: rotateReverse 0.5s ease forwards;
+}
+
+#header .hamburgerIcon .bar {
+    height: 2px;
+    width: 100%;
+    pointer-events: none;
+    user-select: none;
+    background-color: var(--white);
+}
+
+#header .hamburgerIcon .bar.firstBarRotation {
+    width: 130%;
+    transform-origin: left center;
+    transform: rotateZ(40deg);
+}
+
+#header .hamburgerIcon .bar.lastBarRotation {
+    width: 130%;
+    transform-origin: left center;
+    transform: rotateZ(-40deg);
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotateZ(0);
+    }
+
+    100% {
+        transform: rotateZ(180deg);
+    }
+}
+
+@keyframes rotateReverse {
+    0% {
+        transform: rotateZ(180deg);
+    }
+
+    100% {
+        transform: rotateZ(0);
+    }
+}
+
+@media screen and (max-width: 815px) {
+    #header nav#forLargerScreens {
+        display: none;
+    }
+
+    #header nav#forSmallerScreens {
+        display: flex;
+    }
+}
+
+/* layout/Footer.jsx********************************** */
+footer {
+    background-color: var(--transparent-dark);
+}
+
+/* miniComponents/PortfolioItem.jsx********************************** */
+#portfolio .portfolio img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+#portfolio .portfolio .portfolioEnvelope {
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background-image: linear-gradient(var(--transparent-dark), rgba(0, 0, 0, 0.1), var(--transparent-dark));
+    display: none;
+}
+
+#portfolio .portfolio .viewLink {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0.5em 1em;
+    border-radius: 8px;
+    background-color: var(--light-black);
+}
+
+#portfolio .portfolio .viewLink a {
+    color: var(--white);
+}
+
+#portfolio .portfolio:hover>.portfolioEnvelope {
+    display: block;
+}
+
+#portfolio .portfolio .heading {
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+/* pages/About.jsx********************************** */
+#about .descriptionLogo img {
+    height: 60px;
+    width: auto;
+}
+
+/* pages/Contact.jsx********************************** */
+#contact .socialsLogo {
+    width: 100px;
+}
+
+#contact .container>div {
+    width: calc(100%/3);
+    height: 150px;
+}
+
+#contact .container>div:not(:last-child) {
+    border-right: 2px solid var(--light-black);
+}
+
+#contact .menuBtns nav ul {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-flow: row;
+    grid-auto-rows: 1fr;
+    grid-gap: 10px;
+}
+
+#contact .contacts b {
+    margin-right: 1em;
+}
+
+#contact .contacts a:hover {
+    color: var(--light-gray);
+}
+
+@media screen and (max-width: 790px) {
+    #contact .container>div:not(:nth-child(2)) {
+        width: 50%;
+        order: 2;
+    }
+
+    #contact .container>div:last-child,
+    #contact .container>div:nth-child(2) {
+        border-right: 0;
+    }
+
+    #contact .container>div:nth-child(2) {
+        order: 1;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    #contact .container>div:first-child {
+        border: 0;
+    }
+
+    #contact .container>div:not(:nth-child(2)) {
+        width: 100%;
+        order: 2;
+    }
+}
+
+/* pages/Gallery.jsx********************************** */
+#gallery .galleryImages {
+    columns: 5;
+    column-gap: 10px;
+    /* display: grid;
+    grid-template-rows: 200px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-auto-flow: row;
+    grid-auto-rows: 200px;
+    grid-gap: 15px; */
+}
+
+#gallery .galleryImages .box {
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#gallery .viewBtn a {
+    border-radius: 3px;
+    padding: 0.6em 1.2em;
+    background-color: var(--light-black);
+}
+
+#gallery .viewBtn a:hover {
+    background-color: var(--black);
+}
+
+@media screen and (max-width: 1000px) {
+    #gallery .galleryImages {
+        columns: 4;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    #gallery .galleryImages {
+        columns: 3;
+    }
+}
+
+@media screen and (max-width: 470px) {
+    #gallery .galleryImages {
+        columns: 2;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    #gallery .galleryImages {
+        columns: 1;
+    }
+}
+
+/* pages/ImageGallery.jsx ******************************************/
+section#imageGallery {
+    columns: 5;
+    column-gap: 10px;
+}
+
+section#imageGallery .box {
+    border-radius: 5px;
+}
+
+section#imageGallery .box img {
+    border-radius: inherit;
+}
+
+/* pages/LatestBlog.jsx********************************** */
+#latestBlog {
+    background-image: url("assets/desert.jpg"), var(--secondary-gradient);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+}
+
+#latestBlog .wrapper {
+    width: min(500px, 100%);
+}
+
+#latestBlog .readMoreBtn a {
+    padding: 0.6em 1.2em;
+    border-radius: 3px;
+    border: 2px solid var(--lightest-gray);
+    background-color: transparent;
+}
+
+#latestBlog .wrapper p {
+    color: var(--lightest-gray);
+}
+
+/* pages/Blog.jsx********************************** */
+#blog img {
+    outline: 2px solid var(--outline-color);
+    outline-offset: 2px;
+}
+
+/* pages/Portfolio.jsx********************************** */
+#portfolio .portfolios {
+    display: grid;
+    grid-template-rows: 400px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 15px;
+    grid-auto-flow: row;
+    grid-auto-rows: 500px;
+}
+
+/* pages/Services.jsx********************************** */
+#services {
+    background-image: url("assets/service.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-color: var(--transparent-dark);
+    background-blend-mode: multiply;
+}
+
+#services .servicesProvided {
+    display: grid;
+    grid-template-rows: 100px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-auto-flow: row;
+    grid-auto-rows: 200px;
+    grid-gap: 30px;
+}
+
+/* pages/Testimonials.jsx********************************** */
+#testimonials .testimonialPic .picWrapper {
+    border-radius: 50%;
+    width: 100px;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: center center;
+    overflow: hidden;
+}
+
+#testimonials .actionbtn {
+    top: 50%;
+    cursor: pointer;
+    color: var(--light-black);
+}
+
+#testimonials .actionBtnPrev {
+    left: 10%;
+}
+
+#testimonials .actionBtnNext {
+    right: 10%;
+}

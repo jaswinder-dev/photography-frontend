@@ -1,0 +1,414 @@
+/* components/Loader.jsx********************************* */
+.loader {
+    height: 100vh;
+    width: 100vw;
+}
+
+/* layout/Header.jsx********************************* */
+#adminHeader {
+    background-color: var(--transparent-dark);
+}
+
+#adminHeader #forLargerScreens .profilePic,
+#adminHeader #forSmallerScreens .profilePic {
+    width: 40px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    outline: 1px solid var(--outline-color);
+    outline-offset: 3px;
+}
+
+#adminHeader #forSmallerScreens .profilePic {
+    width: 30px;
+    margin-right: 1em;
+}
+
+#adminHeader img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+#adminHeader #forLargerScreens .logout_btn {
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
+    margin-right: 2em;
+}
+
+#adminHeader nav li a:not(.logoImg) {
+    color: var(--white);
+}
+
+#adminHeader nav li a:not(.logoImg):hover {
+    border-bottom: 2px solid currentColor;
+}
+
+#adminHeader nav#forSmallerScreens {
+    background-color: var(--transparent-dark);
+    display: none;
+}
+
+#adminHeader nav#forSmallerScreens ul {
+    width: 100%;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--black);
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+#adminHeader nav#forSmallerScreens ul.hidden {
+    transform: translateY(-200%);
+}
+
+#adminHeader nav#forSmallerScreens ul.shown {
+    display: block;
+    transform: translateY(0);
+}
+
+#adminHeader #forLargerScreens .logoImg {
+    width: 120px;
+}
+
+#adminHeader #forSmallerScreens .logoImg {
+    width: 100px;
+}
+
+#adminHeader .hamburgerIcon {
+    aspect-ratio: 1;
+    z-index: 110;
+}
+
+#adminHeader .hamburgerIcon .icon {
+    width: 14px;
+    aspect-ratio: 1;
+    cursor: pointer;
+}
+
+#adminHeader .hamburgerIcon .icon.shown {
+    animation: rotate 0.5s ease forwards;
+}
+
+#adminHeader .hamburgerIcon .icon.hidden {
+    animation: rotateReverse 0.5s ease forwards;
+}
+
+#adminHeader .hamburgerIcon .icon .bar {
+    height: 2px;
+    width: 100%;
+    pointer-events: none;
+    user-select: none;
+    background-color: var(--white);
+}
+
+#adminHeader .hamburgerIcon .icon .bar.firstBarRotation {
+    width: 130%;
+    transform-origin: left center;
+    transform: rotateZ(40deg);
+}
+
+#adminHeader .hamburgerIcon .icon .bar.lastBarRotation {
+    width: 130%;
+    transform-origin: left center;
+    transform: rotateZ(-40deg);
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotateZ(0);
+    }
+
+    100% {
+        transform: rotateZ(180deg);
+    }
+}
+
+@keyframes rotateReverse {
+    0% {
+        transform: rotateZ(180deg);
+    }
+
+    100% {
+        transform: rotateZ(0);
+    }
+}
+
+@media screen and (max-width: 976px) {
+    #adminHeader nav#forLargerScreens {
+        display: none;
+    }
+
+    #adminHeader nav#forSmallerScreens {
+        background-color: var(--transparent-dark);
+        display: flex;
+    }
+}
+
+/* pages/Login.jsx************************* */
+#login {
+    box-shadow: 2px 2px 5px 2px var(--outline-color);
+}
+
+@media screen and (max-width: 500px) {
+    #login {
+        box-shadow: none;
+    }
+}
+
+/* pages/editFrontEnd/EditBanner.jsx and pages/AddImage.jsx************************* */
+#addImages {
+    width: min(700px, 90%);
+}
+
+#addImages .imgWrapper {
+    margin-right: 2em;
+    width: 300px;
+}
+
+#addImages .imgWrapper img {
+    object-fit: cover;
+    object-position: center center;
+    outline: 2px solid var(--outline-color);
+    outline-offset: 3px;
+}
+
+#addImages textarea {
+    border-bottom: 2px solid var(--lightest-gray);
+    resize: none;
+}
+
+@media screen and (max-width: 650px) {
+    #addImages .imgWrapper {
+        margin-right: 0;
+        width: 100%;
+    }
+
+    #addImages .imgWrapper img {
+        margin-bottom: 1em;
+    }
+
+    #addImages .mainContainer {
+        flex-direction: column;
+    }
+}
+
+/* pages/editFrontEnd/EditLogo.jsx************************* */
+#editLogo {
+    width: min(700px, 90%);
+}
+
+#editLogo .imgWrapper {
+    margin-right: 2em;
+    width: 160px;
+}
+
+#editLogo .imgWrapper img {
+    object-fit: cover;
+    object-position: center center;
+}
+
+#editLogo textarea {
+    border-bottom: 2px solid var(--lightest-gray);
+    resize: none;
+}
+
+@media screen and (max-width: 650px) {
+    #editLogo .imgWrapper {
+        margin-right: 0;
+        width: min(100%, 150px);
+    }
+
+    #editLogo .imgWrapper img {
+        margin-bottom: 1em;
+    }
+
+    #editLogo .mainContainer {
+        flex-direction: column;
+    }
+}
+
+/* pages/editFrontEnd/UpdateSocials.jsx************************* */
+#updateSocials form span {
+    padding: 0.3em;
+    color: var(--light-gray);
+    border-radius: 50%;
+    padding: 0.2em 0.4em;
+    border: 2px solid var(--outline-color);
+    margin-right: 1em;
+}
+
+/* pages/AddBlog.jsx************************* */
+#add_blog .img_wrapper {
+    width: min(100%, 300px);
+}
+
+#add_blog .img_wrapper img {
+    outline: 2px solid var(--outline-color);
+    outline-offset: 3px;
+}
+
+/* pages/AddCategory.jsx and pages/Login.jsx************************* */
+
+/* pages/AddService.jsx************************* */
+#add_service form textarea {
+    border: 1px solid var(--outline-color);
+    width: 100%;
+    resize: none;
+}
+
+/* pages/AddTestimony.jsx************************* */
+#add_testimonial .img_wrapper {
+    width: 100px;
+    height: 100px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
+#add_testimonial .img_wrapper img {
+    object-fit: cover;
+    object-position: center center;
+    height: 100%;
+    width: 100%;
+    border-radius: inherit;
+}
+
+#add_testimonial form {
+    width: min(600px, 100%);
+}
+
+#add_testimonial form label {
+    bottom: -10px;
+    right: -10px;
+    padding: 0.7em 1em;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid var(--white);
+}
+
+#add_testimonial form textarea {
+    resize: none;
+    height: 120px !important;
+    border: 1px solid var(--outline-color);
+}
+
+/* pages/AllImages.jsx,
+pages/AllPhotographers.jsx,
+pages/AllServices.jsx,
+pages/MyImages.jsx,
+pages/AllTestimonies.jsx ,
+pages/AllCategries.jsx************************* */
+#allImages .picWrapper {
+    width: 80px;
+    height: auto;
+}
+
+#allImages table {
+    border-collapse: collapse;
+}
+
+#allImages td,
+#allImages th {
+    border: 2px solid var(--white);
+}
+
+#allImages td button {
+    font-size: 1.3rem;
+}
+
+#allImages table thead {
+    background-color: rgb(149, 175, 255);
+}
+
+#allImages table tbody tr:nth-child(n) {
+    background-color: rgb(240, 240, 240);
+}
+
+#allImages table tbody tr:nth-child(2n) {
+    background-color: rgb(255, 255, 255);
+}
+
+/* pages/Profile.jsx************************************ */
+#profile .profilePicWrapper {
+    width: 150px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    outline: 2px solid var(--outline-color);
+    outline-offset: 4px;
+}
+
+#profile .profilePicWrapper img {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+#profile .profilePicWrapper button {
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+}
+
+#profile .profilePicWrapper label {
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+}
+
+/* pages/DeletePost.jsx,
+pages/DeletePhotographer.jsx***************************** */
+article .imageWrapper {
+    width: 200px;
+    outline: 2px solid var(--outline-color);
+    outline-offset: 2px;
+}
+
+article .alertBox {
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 100;
+}
+
+/* pages/Error.jsx************************* */
+section#error {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../assets/fog.jpg"), var(--primary-gradient);
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    color: var(--lightest-gray);
+}
+
+section#error .heading h1 {
+    font-size: 1000%;
+}
+
+section#error .heading p {
+    color: var(--lightest-gray) !important;
+}
+
+section#error a {
+    border-radius: 5px;
+    border: 2px solid var(--lightest-gray);
+    color: var(--lightest-gray);
+    background-color: transparent;
+}
+
+@media screen and (max-width: 500px) {
+    section#error .heading h1 {
+        font-size: 700%;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    section#error .heading h1 {
+        font-size: 500%;
+    }
+}
