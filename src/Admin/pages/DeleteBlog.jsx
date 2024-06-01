@@ -5,7 +5,6 @@ import Toast from '../components/Toast';
 import { ROUTE } from '../../../config/env.js';
 import { Crud } from '../../classes/Crud.js';
 import { Context } from "../../main";
-import img from '../../assets/blog.jpg';
 
 const DeleteBlog = () => {
 
@@ -26,7 +25,7 @@ const DeleteBlog = () => {
         showAlert
     } = useContext(Context);
 
-    const [image, setImage] = useState(img);
+    const [image, setImage] = useState("");
     const [title, setTitle] = useState("");
 
     //will be used to show alert box for
