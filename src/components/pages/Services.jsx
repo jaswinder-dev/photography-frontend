@@ -14,7 +14,7 @@ const Services = () => {
 
     //fetching services
     const fetchServices = async () => {
-        const data = await obj.get("/service/api/get");
+        const data = await obj.get("/service/api/get/frontend");
         if (data.success) {
             setServices(data.services);
         }
