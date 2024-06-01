@@ -6,12 +6,12 @@ export class Crud {
 
     #error = {};  //storing errors
     #data = {}; //storing response data
-    #cookie = JSON.parse(localStorage.getItem("photographer")).cookie || null;
+    #auth = JSON.parse(localStorage.getItem("photographer")).auth || null;
 
     //getting data ('GET' or 'POST')
     async get(url, options = { method: "GET" }) {
-        if (this.#cookie) {
-            options.headers = { "data": this.#cookie }
+        if (this.#auth) {
+            options.headers = { "data": this.#auth }
         }
         if (await this.#request(url, options)) {
             return (this.#data);
@@ -45,8 +45,8 @@ export class Crud {
             options.headers = {};
         }
 
-        if (this.#cookie) {
-            options.headers.data = this.#cookie;
+        if (this.#auth) {
+            options.headers.data = this.#auth;
         }
 
         if (await this.#request(url, options)) { //if successfully responded, return the response data
@@ -58,7 +58,7 @@ export class Crud {
 
     // deleting the data ("DELETE")
     async delete(url) {
-        if (await this.#request(url, { method: 'DELETE', headers: { data: this.#cookie } })) {
+        if (await this.#request(url, { method: 'DELETE', headers: { data: this.#auth } })) {
             return (this.#data);
         } else {
             return (this.#error);

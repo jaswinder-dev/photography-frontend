@@ -5,8 +5,8 @@ import { ROUTE } from "../../../config/env";
 import { Navigate, Outlet } from "react-router-dom";
 
 //check if the token is expired (token will expire on 7th day of last log in)
-const isTokenExpired = (cookie) => {
-  const date = ((cookie).split(";")[1]).split("=")[1];
+const isTokenExpired = (auth) => {
+  const date = ((auth).split(";")[1]).split("=")[1];
   if (new Date(date) > new Date(Date.now())) {
     return false;
   }
@@ -31,7 +31,7 @@ const PrivateComponent = () => {
   }
 
   //if logged in but, token has expired
-  if (isTokenExpired(json.cookie)) {
+  if (isTokenExpired(json.auth)) {
     localStorage.removeItem("photographer");
     return <Navigate to={`/admin/${ROUTE}/login`} />;
   }
@@ -41,11 +41,6 @@ const PrivateComponent = () => {
   } else { //only 'posts' page can be accessed.
     return <Navigate to={`/admin/${ROUTE}/posts`} />;
   }
-  // if (json.data.role === "Admin") { //if 'Admin', any page can be accessed.
-  //   return <Outlet />;
-  // } else { //only 'posts' page can be accessed.
-  //   return <Navigate to={`/admin/${ROUTE}/posts`} />;
-  // }
 
 };
 
