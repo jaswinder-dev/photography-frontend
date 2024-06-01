@@ -71,16 +71,16 @@ export class Crud {
             url: BACKEND_BASE_URI + url,
             options
         });
-        // try {
-        //     const req = await fetch(BACKEND_BASE_URI + url, options);
-        //     const response = await req.json();
-        //     if (!req.ok) throw response; //if there is any error
-        //     this.#data = response; //successfull response by the request, store the response data
-        //     return true;
-        // } catch (error) {
-        //     this.#error = error;  //store the error 
-        //     return false;
-        // }
+        try {
+            const req = await fetch(BACKEND_BASE_URI + url, options);
+            const response = await req.json();
+            if (!req.ok) throw response; //if there is any error
+            this.#data = response; //successfull response by the request, store the response data
+            return true;
+        } catch (error) {
+            this.#error = error;  //store the error 
+            return false;
+        }
     }
 
 }
