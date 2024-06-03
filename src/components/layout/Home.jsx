@@ -18,6 +18,15 @@ const Home = () => {
     const [lightLogo, setLightLogo] = useState("");
     const [background, setBackground] = useState("");
 
+    const photographer = JSON.parse(localStorage.getItem("photographer"));
+
+    if (!photographer || Object.keys(photographer).length === 0) {
+        let photographer = JSON.stringify({ data: null, auth: null });
+        localStorage.setItem(
+            JSON.stringify(photographer)
+        );
+    }
+
     useEffect(() => {
         fetchData();
         AOS.init({ duration: 1000 });
