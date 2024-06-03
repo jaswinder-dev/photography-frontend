@@ -21,9 +21,8 @@ const Home = () => {
     const photographer = JSON.parse(localStorage.getItem("photographer"));
 
     if (!photographer || Object.keys(photographer).length === 0) {
-        let photographer = JSON.stringify({ data: null, auth: null });
-        localStorage.setItem(
-            JSON.stringify(photographer)
+        localStorage.setItem(photographer,
+            JSON.stringify({ data: null, auth: null })
         );
     }
 
